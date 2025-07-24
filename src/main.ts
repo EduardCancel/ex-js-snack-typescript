@@ -20,3 +20,23 @@ type Dipendente = {
   sesso : 'm' | 'f',
   anniDiServizio : number[],
 }
+
+type Developer = Dipendente & {
+  livelloEsperienza: 'Junior' | 'Mid' | 'Senior',
+  linguaggi?: string[],
+  certificazioni: string[]
+}
+
+type ProjectManager = Dipendente & {
+
+  teamSize: number | null,
+  budgetGestito?: number,
+  stakeholderPrincipali: string[] | null
+}
+
+type Team = {
+  nome: string,
+  progettoAttuale: string | null,
+  budget: number,
+  membri: [ProjectManager, Developer, ...Developer[]]
+}
